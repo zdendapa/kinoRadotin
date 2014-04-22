@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <link rel="stylesheet" href="css/idangerous.swiper.css">
+    <style>
+        /* Demo Styles */
+        html {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            position: relative;
+            height: 100%;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 80%;
+            top: 10%;
+            color: #fff;
+            text-align: center;
+        }
+        .red-slide {
+            background: #ca4040;
+        }
+        .blue-slide {
+            background: #4390ee;
+        }
+        .orange-slide {
+            background: #ff8604;
+        }
+        .green-slide {
+            background: #49a430;
+        }
+        .pink-slide {
+            background: #973e76;
+        }
+        .swiper-slide .title {
+            font-style: italic;
+            font-size: 42px;
+            margin-top: 80px;
+            margin-bottom: 0;
+            line-height: 45px;
+        }
+
+
+        .pagination {
+            width: 100%;
+            height: 8%;
+            position: fixed;
+            bottom: 0px;
+            background: #0d6fa3;
+            padding: 1% 0 1% 0;
+        }
+        .pagination span:nth-child(1) {
+            background: url("img/calendar.png") center no-repeat;
+            background-size: contain;
+        }
+        .pagination span:nth-child(1).swiper-active-switch {
+            background: url("img/calendar_act.png") center no-repeat;
+            background-size: contain;
+        }
+        .pagination span:nth-child(2) {
+            background: url("img/checkout.png") center no-repeat;
+            background-size: contain;
+        }
+        .pagination span:nth-child(2).swiper-active-switch {
+            background: url("img/checkout_act.png") center no-repeat;
+            background-size: contain;
+        }
+        .pagination span:nth-child(3) {
+            background: url("img/mail.png") center no-repeat;
+            background-size: contain;
+        }
+        .pagination span:nth-child(3).swiper-active-switch {
+            background: url("img/mail_act.png") center no-repeat;
+            background-size: contain;
+        }
+        .pagination span:nth-child(4) {
+            background: url("img/setting.png") center no-repeat;
+            background-size: contain;
+        }
+        .pagination span:nth-child(4).swiper-active-switch {
+            background: url("img/setting_act.png") center no-repeat;
+            background-size: contain;
+        }
+
+        .swiper-pagination-switch {
+            width: 23%;
+            margin: 0 1% 0 1%;
+            height: 100%;
+            float: left;
+        }
+
+
+
+
+
+
+        div.title {
+            position: absolute;
+            width: 100%;
+            height: 10%;
+            background: #0d6fa3;
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .title h1 {
+            text-align: center;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 2em;
+            line-height: 1em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+
+
+        iframe {
+            border: 0px;
+            margin: 0px;
+            padding: 0px;
+            margin-top: -346px;
+            margin-left: -250px;
+        }
+
+        div#program {
+            height: 100%;
+            width: 735px;
+            overflow-x: hidden;
+            margin: auto;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="title">
+    <h1>PROGRAM</h1>
+</div>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide red-slide">
+            <div id="program">
+                <iframe id="ifSource" width="1020px" height="100%" src="http://www.praha16.eu/Mestska-cast/Kultura-skolstvi-volny-cas/Kino-Radotin-3D/area1526"></iframe>
+            </div>
+        </div>
+        <div class="swiper-slide blue-slide">
+            <div class="title">Slide 2</div>
+        </div>
+        <div class="swiper-slide orange-slide">
+            <div class="title">Slide 3</div>
+        </div>
+        <div class="swiper-slide green-slide">
+            <div class="title">Slide 4</div>
+        </div>
+    </div>
+
+</div>
+<div class="pagination"></div>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/idangerous.swiper-2.1.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        pagination: '.pagination',
+        paginationClickable: true,
+        onSlideChangeEnd: changeSlideEnd
+    })
+
+    function changeSlideEnd()
+    {
+        switch(mySwiper.activeIndex)
+        {
+            case 1:
+                $(".title").find("h1").html("Program");
+                $("#tabProgram").css("background","url('img/calendar_act.png') center no-repeat");
+                $("#tabProgram").css("background-size","contain");
+                break;
+            case 2:
+                $(".title").find("h1").html("Akce");
+            case 3:
+                $(".title").find("h1").html("Kontakt");
+            case 4:
+                $(".title").find("h1").html("Nastavení");
+                break;
+        }
+    }
+</script>
+</body>
+</html>
